@@ -1,9 +1,8 @@
 // ========== CONFIGURATION ==========
-// Replace with your actual shop URL (the main page)
 const SHOP_URL = "https://www.cheapdata.shop/shop/brivian-ltd";
 const WHATSAPP_CHANNEL_URL = "https://whatsapp.com/channel/0029VbBi57OKgsNrDCV4zs1E-";
 
-// Bundle data (prices, names, etc.)
+// Bundle data
 const bundles = [
     { id: "mtn-1gb", name: "MTN 1GB", network: "MTN", volume: "1 GB", price: 4.50, validity: "24 hours", popular: true, description: "High speed 4G+ data for MTN. Perfect for daily browsing." },
     { id: "mtn-3gb", name: "MTN 3GB", network: "MTN", volume: "3 GB", price: 11.00, validity: "3 days", popular: true, description: "Social media & streaming pack." },
@@ -25,14 +24,11 @@ const bundles = [
     { id: "mtn-40gb", name: "MTN 40GB", network: "MTN", volume: "40 GB", price: 110.00, validity: "60 days", popular: false, description: "Wholesale reseller bundle." }
 ];
 
-// Helper: Get the external URL for a bundle (if you have specific product links, map them here)
 function getBundleUrl(bundleId) {
-    // If your original shop has product-specific URLs, replace this with a mapping.
-    // For now, all go to the main shop.
+    // Return the same shop URL for all bundles (or map individually if needed)
     return SHOP_URL;
 }
 
-// Render home page with bundles grid
 function renderHome(filterNetwork = "all", searchTerm = "") {
     let filtered = bundles;
     if (filterNetwork !== "all") {
@@ -96,7 +92,6 @@ function renderHome(filterNetwork = "all", searchTerm = "") {
     `;
 }
 
-// Render detail page for a specific bundle
 function renderDetail(bundle) {
     const bundleUrl = getBundleUrl(bundle.id);
     return `
@@ -113,7 +108,6 @@ function renderDetail(bundle) {
     `;
 }
 
-// Simple router
 function navigate(path) {
     const root = document.getElementById('app-root');
     if (path === '/' || path === '') {
@@ -132,19 +126,16 @@ function navigate(path) {
     }
 }
 
-// Attach event listeners for filters and search (only on home page)
 function attachHomeEvents() {
-    // Filter buttons
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const network = btn.dataset.network;
             const searchTerm = document.getElementById('searchInput')?.value.toLowerCase() || '';
             document.getElementById('app-root').innerHTML = renderHome(network, searchTerm);
-            attachHomeEvents(); // reattach after re-render
+            attachHomeEvents();
         });
     });
 
-    // Search input
     const searchInput = document.getElementById('searchInput');
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
@@ -155,7 +146,6 @@ function attachHomeEvents() {
         });
     }
 
-    // View detail links (to navigate internally)
     document.querySelectorAll('.view-detail').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -165,7 +155,6 @@ function attachHomeEvents() {
     });
 }
 
-// Navigation buttons
 document.getElementById('navHome')?.addEventListener('click', (e) => {
     e.preventDefault();
     navigate('/');
@@ -175,15 +164,13 @@ document.getElementById('navBundles')?.addEventListener('click', (e) => {
     navigate('/');
 });
 
-// WhatsApp float redirect to shop
+// WhatsApp button now opens your channel
 document.getElementById('whatsappBtn')?.addEventListener('click', () => {
-    window.location.href = SHOP_URL;
+    window.open(WHATSAPP_CHANNEL_URL, '_blank');
 });
 
-// Handle browser back/forward
 window.addEventListener('popstate', () => {
     navigate(window.location.pathname);
 });
 
-// Initial load
 navigate(window.location.pathname);
