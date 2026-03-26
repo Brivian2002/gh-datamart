@@ -2,459 +2,248 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>GHDatamart | #1 Data Bundles in Ghana – Wholesale Prices</title>
-    <meta name="description" content="Buy cheapest MTN, Vodafone, AirtelTigo, Glo data bundles in Ghana. Instant delivery, wholesale prices, 24/7 support. Trusted by resellers.">
-    <meta name="keywords" content="data bundles Ghana, cheap data, MTN data, Vodafone data, AirtelTigo bundles, buy data online, reseller portal, GHDatamart">
-    <meta name="author" content="GHDatamart">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GHDatamart | #1 Data Bundles in Ghana</title>
+    <meta name="description" content="Buy cheapest MTN, Vodafone, AirtelTigo, Glo data bundles in Ghana. Instant delivery, wholesale prices.">
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://ghdatamart.com">
-    <meta property="og:title" content="GHDatamart – Cheapest Data Bundles in Ghana">
-    <meta property="og:description" content="Instant delivery of Ghana data bundles at wholesale prices. Join 40K+ resellers.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://ghdatamart.com/og-image.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    
-    <!-- Google Fonts & Font Awesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #0f172a; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+        /* Light theme card */
+        .bundle-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s;
         }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #0a0c10;  /* dark base – matches original site's vibe */
-            color: #e5e7eb;
-            scroll-behavior: smooth;
-        }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #1f2937; }
-        ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 4px; }
-
-        /* Glass card effect */
-        .glass-card {
-            background: rgba(17, 24, 39, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            border-radius: 1.5rem;
-            transition: all 0.3s ease;
-        }
-        .glass-card:hover {
-            border-color: #3b82f6;
-            box-shadow: 0 8px 20px rgba(59,130,246,0.15);
+        .bundle-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+            border-color: #cbd5e1;
         }
         .btn-primary {
-            background: linear-gradient(135deg, #2563eb, #1e40af);
-            border: none;
+            background: #2563eb;
             color: white;
-            padding: 0.7rem 1.8rem;
-            border-radius: 2rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            background: linear-gradient(135deg, #3b82f6, #1e3a8a);
-            box-shadow: 0 8px 15px rgba(37,99,235,0.3);
-        }
-        .btn-outline {
-            background: transparent;
-            border: 1px solid #3b82f6;
-            color: #3b82f6;
-            padding: 0.6rem 1.4rem;
+            padding: 0.5rem 1rem;
             border-radius: 2rem;
             font-weight: 600;
             transition: 0.2s;
+            display: inline-block;
         }
-        .btn-outline:hover {
-            background: #3b82f610;
-            border-color: #60a5fa;
-        }
+        .btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); }
         .network-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: #1e293b;
-            padding: 4px 12px;
-            border-radius: 40px;
+            background: #eef2ff;
+            color: #1e40af;
+            padding: 0.2rem 0.7rem;
+            border-radius: 2rem;
             font-size: 0.75rem;
-            font-weight: 500;
-            color: #94a3b8;
-        }
-        .bundle-card {
-            background: #111827;
-            border: 1px solid #1f2937;
-            border-radius: 1.2rem;
-            transition: all 0.3s ease;
-        }
-        .bundle-card:hover {
-            transform: translateY(-6px);
-            border-color: #3b82f6;
-            box-shadow: 0 20px 25px -12px rgba(0,0,0,0.4);
-        }
-        .whatsapp-float {
-            position: fixed;
-            bottom: 28px;
-            right: 28px;
-            background: #25D366;
-            color: white;
-            border-radius: 60px;
-            padding: 12px 24px;
             font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            z-index: 1000;
-            cursor: pointer;
-            transition: transform 0.2s;
         }
-        .whatsapp-float:hover {
-            transform: scale(1.05);
-            background: #20b359;
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .fade-in {
-            animation: fadeInUp 0.4s ease-out;
-        }
-        .skeleton {
-            background: linear-gradient(90deg, #1f2937 25%, #2d3748 50%, #1f2937 75%);
-            background-size: 200% 100%;
-            animation: shimmer 1.2s infinite;
-        }
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-        /* filter tabs */
         .filter-tab {
-            background: #1f2937;
-            color: #9ca3af;
-            transition: all 0.2s;
+            background: #f1f5f9;
+            color: #334155;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: 0.2s;
+            cursor: pointer;
         }
         .filter-tab.active {
             background: #2563eb;
             color: white;
-            box-shadow: 0 2px 8px rgba(37,99,235,0.4);
         }
-        .filter-tab:hover:not(.active) {
-            background: #2d3748;
-            color: #e5e7eb;
+        .whatsapp-float {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: #25d366;
+            color: white;
+            border-radius: 3rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 1000;
         }
     </style>
 </head>
-<body class="bg-[#0a0c10]">
-
-    <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-[#0a0c10]/80 backdrop-blur-md border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+<body>
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="container py-4 flex justify-between items-center">
             <div class="flex items-center gap-2">
-                <i class="fas fa-database text-3xl text-[#3b82f6]"></i>
-                <span class="font-extrabold text-2xl tracking-tight text-white">GH<span class="text-[#3b82f6]">Datamart</span></span>
-                <span class="ml-2 bg-blue-900/50 text-blue-300 text-xs px-2 py-0.5 rounded-full border border-blue-500/30">⚡ WHOLESALE</span>
+                <i class="fas fa-database text-2xl text-blue-600"></i>
+                <span class="font-bold text-xl">GH<span class="text-blue-600">Datamart</span></span>
             </div>
-            <div class="flex gap-4 items-center">
-                <a href="#" class="hidden md:block text-gray-300 hover:text-white font-medium transition" id="navHome">Home</a>
-                <a href="#" class="hidden md:block text-gray-300 hover:text-white font-medium transition" id="navBundles">All Bundles</a>
-                <!-- Direct link to original shop main page -->
-                <a href="https://www.cheapdata.shop/shop/brivian-ltd" target="_blank" rel="noopener noreferrer" class="bg-[#2563eb] text-white px-5 py-2 rounded-full text-sm font-semibold shadow-md hover:bg-[#1e40af] transition">Reseller Hub →</a>
+            <div class="flex gap-4">
+                <a href="#" id="navHome" class="text-gray-600 hover:text-blue-600">Home</a>
+                <a href="#" id="navBundles" class="text-gray-600 hover:text-blue-600">All Bundles</a>
+                <a href="https://www.cheapdata.shop/shop/brivian-ltd" target="_blank" class="bg-blue-600 text-white px-4 py-1.5 rounded-full text-sm">Reseller Hub →</a>
             </div>
         </div>
     </nav>
 
-    <main id="app-root" class="min-h-screen">
-        <div class="flex justify-center items-center py-32">
-            <div class="skeleton w-16 h-16 rounded-full"></div>
-        </div>
+    <main id="app-root" class="container py-8">
+        <!-- Content will be injected -->
+        <div class="text-center py-20">Loading...</div>
     </main>
 
-    <!-- Floating WhatsApp (redirects to original shop) -->
-    <div class="whatsapp-float" id="whatsappFloatBtn">
-        <i class="fab fa-whatsapp fa-xl"></i>
-        <span>Order on WhatsApp →</span>
+    <div class="whatsapp-float" id="whatsappBtn">
+        <i class="fab fa-whatsapp"></i> Order on WhatsApp →
     </div>
 
-    <footer class="bg-[#030712] text-gray-400 mt-20 py-12 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
-            <div><h3 class="text-white font-bold mb-3">GHDatamart</h3><p class="text-sm">#1 Data Bundles Marketplace in Ghana. Instant delivery, best prices.</p></div>
-            <div><h4 class="font-semibold mb-3 text-white">Networks</h4><ul class="text-sm space-y-1"><li>MTN Ghana</li><li>Vodafone Ghana</li><li>AirtelTigo</li><li>Glo</li></ul></div>
-            <div><h4 class="font-semibold mb-3 text-white">Support</h4><ul class="text-sm space-y-1"><li>24/7 Live Chat</li><li>Delivery Status</li><li>Refund Policy</li><li>Reseller API</li></ul></div>
-            <div><h4 class="font-semibold mb-3 text-white">Contact</h4><p class="text-sm"><i class="fas fa-phone-alt mr-2"></i>+233 50 123 4567</p><p class="text-sm"><i class="fab fa-whatsapp mr-2"></i>WhatsApp Only</p></div>
-        </div>
-        <div class="border-t border-gray-800 mt-8 pt-6 text-center text-xs">© 2025 GHDatamart — Intelligent Data Marketplace. All networks, wholesale edge.</div>
+    <footer class="bg-gray-900 text-gray-300 mt-16 py-8">
+        <div class="container text-center text-sm">© 2025 GHDatamart — Ghana's #1 Data Bundles Marketplace</div>
     </footer>
 
     <script>
-        // ========== TARGET ORIGINAL SHOP URL (base) ==========
-        const ORIGINAL_SHOP_BASE = "https://www.cheapdata.shop/shop/brivian-ltd";
+        // ========== CONFIGURATION ==========
+        // Replace with the actual shop URL (without product-specific query)
+        const SHOP_URL = "https://www.cheapdata.shop/shop/brivian-ltd";
 
-        // ========== MAPPING: EACH BUNDLE TO ITS EXACT URL ON THE ORIGINAL SITE ==========
-        // You can customize this mapping based on the actual product URLs.
-        // For demonstration, we append a query parameter ?product=ID. Replace with actual links if needed.
-        const bundleLinks = {
-            "mtn-1gb-gh": `${ORIGINAL_SHOP_BASE}?product=mtn_1gb`,
-            "mtn-3gb-gh": `${ORIGINAL_SHOP_BASE}?product=mtn_3gb`,
-            "mtn-5gb-gh": `${ORIGINAL_SHOP_BASE}?product=mtn_5gb`,
-            "mtn-10gb-gh": `${ORIGINAL_SHOP_BASE}?product=mtn_10gb`,
-            "mtn-20gb-gh": `${ORIGINAL_SHOP_BASE}?product=mtn_20gb`,
-            "vod-2gb-gh": `${ORIGINAL_SHOP_BASE}?product=vod_2gb`,
-            "vod-5gb-gh": `${ORIGINAL_SHOP_BASE}?product=vod_5gb`,
-            "vod-10gb-gh": `${ORIGINAL_SHOP_BASE}?product=vod_10gb`,
-            "vod-15gb-gh": `${ORIGINAL_SHOP_BASE}?product=vod_15gb`,
-            "airtel-1gb-gh": `${ORIGINAL_SHOP_BASE}?product=airtel_1gb`,
-            "airtel-3gb-gh": `${ORIGINAL_SHOP_BASE}?product=airtel_3gb`,
-            "airtel-5gb-gh": `${ORIGINAL_SHOP_BASE}?product=airtel_5gb`,
-            "airtel-10gb-gh": `${ORIGINAL_SHOP_BASE}?product=airtel_10gb`,
-            "glo-1gb-gh": `${ORIGINAL_SHOP_BASE}?product=glo_1gb`,
-            "glo-3gb-gh": `${ORIGINAL_SHOP_BASE}?product=glo_3gb`,
-            "glo-7gb-gh": `${ORIGINAL_SHOP_BASE}?product=glo_7gb`,
-            "glo-15gb-gh": `${ORIGINAL_SHOP_BASE}?product=glo_15gb`,
-            "mtn-40gb-gh": `${ORIGINAL_SHOP_BASE}?product=mtn_40gb`
-        };
-
-        // Bundle data (prices, descriptions)
-        const bundlesCatalog = [
-            { id: "mtn-1gb-gh", name: "MTN 1GB", network: "MTN", volume: "1 GB", price: 4.50, validity: "24 hours", popular: true, description: "High speed 4G+ data for MTN. Perfect for daily browsing." },
-            { id: "mtn-3gb-gh", name: "MTN 3GB", network: "MTN", volume: "3 GB", price: 11.00, validity: "3 days", popular: true, description: "Social media & streaming pack." },
-            { id: "mtn-5gb-gh", name: "MTN 5GB", network: "MTN", volume: "5 GB", price: 17.50, validity: "7 days", popular: false, description: "Weekly heavy usage bundle." },
-            { id: "mtn-10gb-gh", name: "MTN 10GB", network: "MTN", volume: "10 GB", price: 32.00, validity: "30 days", popular: true, description: "Best value monthly plan." },
-            { id: "mtn-20gb-gh", name: "MTN 20GB", network: "MTN", volume: "20 GB", price: 60.00, validity: "30 days", popular: false, description: "Reseller favorite." },
-            { id: "vod-2gb-gh", name: "Vodafone 2GB", network: "Vodafone", volume: "2 GB", price: 6.00, validity: "24 hours", popular: false, description: "Fast Vodafone data." },
-            { id: "vod-5gb-gh", name: "Vodafone 5GB", network: "Vodafone", volume: "5 GB", price: 14.00, validity: "7 days", popular: true, description: "Weekly pack." },
-            { id: "vod-10gb-gh", name: "Vodafone 10GB", network: "Vodafone", volume: "10 GB", price: 26.00, validity: "30 days", popular: true, description: "Monthly bundle, unlimited streaming." },
-            { id: "vod-15gb-gh", name: "Vodafone 15GB", network: "Vodafone", volume: "15 GB", price: 38.00, validity: "30 days", popular: false, description: "Reseller pack." },
-            { id: "airtel-1gb-gh", name: "AirtelTigo 1GB", network: "AirtelTigo", volume: "1 GB", price: 3.80, validity: "24 hours", popular: true, description: "Cheapest 1GB." },
-            { id: "airtel-3gb-gh", name: "AirtelTigo 3GB", network: "AirtelTigo", volume: "3 GB", price: 10.00, validity: "3 days", popular: false, description: "Flexible data." },
-            { id: "airtel-5gb-gh", name: "AirtelTigo 5GB", network: "AirtelTigo", volume: "5 GB", price: 15.50, validity: "7 days", popular: true, description: "Weekly bestseller." },
-            { id: "airtel-10gb-gh", name: "AirtelTigo 10GB", network: "AirtelTigo", volume: "10 GB", price: 28.00, validity: "30 days", popular: false, description: "Super saver monthly." },
-            { id: "glo-1gb-gh", name: "Glo 1GB", network: "Glo", volume: "1 GB", price: 3.50, validity: "24 hours", popular: true, description: "Glo extra value." },
-            { id: "glo-3gb-gh", name: "Glo 3GB", network: "Glo", volume: "3 GB", price: 9.00, validity: "3 days", popular: false, description: "Daily social." },
-            { id: "glo-7gb-gh", name: "Glo 7GB", network: "Glo", volume: "7 GB", price: 18.00, validity: "14 days", popular: true, description: "High speed data." },
-            { id: "glo-15gb-gh", name: "Glo 15GB", network: "Glo", volume: "15 GB", price: 35.00, validity: "30 days", popular: false, description: "Reseller bulk pack." },
-            { id: "mtn-40gb-gh", name: "MTN 40GB", network: "MTN", volume: "40 GB", price: 110.00, validity: "60 days", popular: false, description: "Wholesale reseller bundle." }
+        // Bundle data (same as before)
+        const bundles = [
+            { id: "mtn-1gb", name: "MTN 1GB", network: "MTN", volume: "1 GB", price: 4.50, validity: "24h", popular: true },
+            { id: "mtn-3gb", name: "MTN 3GB", network: "MTN", volume: "3 GB", price: 11.00, validity: "3d", popular: true },
+            { id: "mtn-5gb", name: "MTN 5GB", network: "MTN", volume: "5 GB", price: 17.50, validity: "7d", popular: false },
+            { id: "mtn-10gb", name: "MTN 10GB", network: "MTN", volume: "10 GB", price: 32.00, validity: "30d", popular: true },
+            { id: "mtn-20gb", name: "MTN 20GB", network: "MTN", volume: "20 GB", price: 60.00, validity: "30d", popular: false },
+            { id: "vod-2gb", name: "Vodafone 2GB", network: "Vodafone", volume: "2 GB", price: 6.00, validity: "24h", popular: false },
+            { id: "vod-5gb", name: "Vodafone 5GB", network: "Vodafone", volume: "5 GB", price: 14.00, validity: "7d", popular: true },
+            { id: "vod-10gb", name: "Vodafone 10GB", network: "Vodafone", volume: "10 GB", price: 26.00, validity: "30d", popular: true },
+            { id: "vod-15gb", name: "Vodafone 15GB", network: "Vodafone", volume: "15 GB", price: 38.00, validity: "30d", popular: false },
+            { id: "airtel-1gb", name: "AirtelTigo 1GB", network: "AirtelTigo", volume: "1 GB", price: 3.80, validity: "24h", popular: true },
+            { id: "airtel-3gb", name: "AirtelTigo 3GB", network: "AirtelTigo", volume: "3 GB", price: 10.00, validity: "3d", popular: false },
+            { id: "airtel-5gb", name: "AirtelTigo 5GB", network: "AirtelTigo", volume: "5 GB", price: 15.50, validity: "7d", popular: true },
+            { id: "airtel-10gb", name: "AirtelTigo 10GB", network: "AirtelTigo", volume: "10 GB", price: 28.00, validity: "30d", popular: false },
+            { id: "glo-1gb", name: "Glo 1GB", network: "Glo", volume: "1 GB", price: 3.50, validity: "24h", popular: true },
+            { id: "glo-3gb", name: "Glo 3GB", network: "Glo", volume: "3 GB", price: 9.00, validity: "3d", popular: false },
+            { id: "glo-7gb", name: "Glo 7GB", network: "Glo", volume: "7 GB", price: 18.00, validity: "14d", popular: true },
+            { id: "glo-15gb", name: "Glo 15GB", network: "Glo", volume: "15 GB", price: 35.00, validity: "30d", popular: false },
+            { id: "mtn-40gb", name: "MTN 40GB", network: "MTN", volume: "40 GB", price: 110.00, validity: "60d", popular: false }
         ];
 
-        // Helper: get link for bundle ID
-        function getBundleLink(bundleId) {
-            return bundleLinks[bundleId] || ORIGINAL_SHOP_BASE; // fallback to main shop
-        }
-
-        // Homepage render (with filters and search)
-        function renderHomePage(filterNetwork = "all", searchTerm = "") {
-            let filtered = bundlesCatalog;
-            if (filterNetwork !== "all") filtered = filtered.filter(b => b.network === filterNetwork);
-            if (searchTerm) filtered = filtered.filter(b => b.name.toLowerCase().includes(searchTerm) || b.volume.toLowerCase().includes(searchTerm));
+        function renderHome(filter = "all", search = "") {
+            let filtered = bundles;
+            if (filter !== "all") filtered = filtered.filter(b => b.network === filter);
+            if (search) filtered = filtered.filter(b => b.name.toLowerCase().includes(search) || b.volume.toLowerCase().includes(search));
 
             const networks = ["all", "MTN", "Vodafone", "AirtelTigo", "Glo"];
-            const filterTabs = networks.map(net => `
-                <button class="filter-tab px-5 py-2 rounded-full text-sm font-medium transition-all ${filterNetwork === net ? 'active' : ''}" data-network="${net}">
-                    ${net === "all" ? "All Networks" : net}
-                </button>
+            const filterButtons = networks.map(net => `<button class="filter-tab ${filter === net ? 'active' : ''}" data-network="${net}">${net === "all" ? "All Networks" : net}</button>`).join('');
+
+            const cards = filtered.map(b => `
+                <div class="bundle-card p-5 flex flex-col h-full">
+                    <div class="flex justify-between items-start">
+                        <span class="network-badge">${b.network}</span>
+                        ${b.popular ? '<span class="bg-amber-100 text-amber-800 text-xs px-2 py-0.5 rounded-full">🔥 Popular</span>' : ''}
+                    </div>
+                    <h3 class="font-bold text-xl mt-3">${b.name}</h3>
+                    <p class="text-gray-500 text-sm">${b.volume} • ${b.validity}</p>
+                    <div class="mt-4 text-2xl font-black">₵${b.price.toFixed(2)}</div>
+                    <div class="mt-6 flex items-center justify-between">
+                        <a href="/bundle/${b.id}" class="text-blue-600 text-sm font-semibold view-detail">View details →</a>
+                        <a href="${SHOP_URL}" target="_blank" rel="noopener" class="bg-gray-100 hover:bg-gray-200 rounded-full px-4 py-1.5 text-sm font-medium transition">Buy</a>
+                    </div>
+                </div>
             `).join('');
 
-            const bundlesHtml = filtered.map(bundle => {
-                const link = getBundleLink(bundle.id);
-                return `
-                <div class="bundle-card p-5 flex flex-col h-full fade-in">
-                    <div class="flex justify-between items-start">
-                        <span class="network-badge"><i class="fas fa-tower-cell"></i> ${bundle.network}</span>
-                        ${bundle.popular ? '<span class="bg-amber-500/20 text-amber-300 text-[11px] px-2 py-0.5 rounded-full">🔥 Popular</span>' : ''}
-                    </div>
-                    <h3 class="text-xl font-bold mt-3 text-white">${bundle.name}</h3>
-                    <p class="text-gray-400 text-sm mt-1">${bundle.volume} • ${bundle.validity}</p>
-                    <div class="mt-4 flex items-baseline gap-1">
-                        <span class="text-2xl font-black text-white">₵${bundle.price.toFixed(2)}</span>
-                        <span class="text-gray-500 text-xs">/bundle</span>
-                    </div>
-                    <p class="text-gray-400 text-sm mt-2 line-clamp-2">${bundle.description}</p>
-                    <div class="mt-6 flex gap-2 items-center">
-                        <a href="/bundle/${bundle.id}" class="text-sm font-semibold text-blue-400 hover:text-blue-300 view-detail">View details →</a>
-                        <a href="${link}" target="_blank" rel="noopener noreferrer" class="purchase-link ml-auto bg-gray-800 hover:bg-gray-700 rounded-full px-4 py-1.5 text-sm font-medium transition inline-flex items-center gap-1">
-                            <i class="fas fa-shopping-cart"></i> Buy
-                        </a>
-                    </div>
-                </div>
-            `}).join('');
-
-            const emptyMessage = filtered.length === 0 ? '<div class="col-span-full text-center py-16 text-gray-500">🤖 No bundles found. Try another filter.</div>' : '';
-
             return `
-                <div class="max-w-7xl mx-auto px-6 py-10">
-                    <!-- Hero -->
-                    <div class="text-center mb-12">
-                        <div class="inline-flex items-center gap-2 bg-gray-800/50 rounded-full px-4 py-1 text-sm text-gray-300 mb-4 border border-gray-700">
-                            <i class="fas fa-bolt text-yellow-500"></i> Instant Delivery • 24/7 Support
-                        </div>
-                        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">GHDatamart</h1>
-                        <p class="text-gray-400 mt-3 text-lg max-w-2xl mx-auto">Wholesale data bundles • All networks Ghana 🇬🇭 • 10-45 min delivery</p>
-                    </div>
+                <div class="text-center mb-10">
+                    <h1 class="text-3xl md:text-4xl font-extrabold">GHDatamart</h1>
+                    <p class="text-gray-600 mt-2">Wholesale data bundles • All networks Ghana • 10-45 min delivery</p>
+                </div>
+                <div class="flex flex-wrap justify-between gap-4 mb-8">
+                    <div class="flex gap-2 flex-wrap">${filterButtons}</div>
+                    <input type="text" id="searchInput" placeholder="Search bundles..." class="border border-gray-300 rounded-full px-4 py-2 w-64 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    ${cards || '<div class="col-span-full text-center text-gray-500">No bundles found</div>'}
+                </div>
+                <div class="mt-16 bg-blue-50 rounded-2xl p-8 text-center">
+                    <h3 class="font-bold text-xl">🚀 Become a reseller</h3>
+                    <p class="mt-1 text-gray-600">Join 40k+ resellers and earn extra profit per bundle.</p>
+                    <a href="${SHOP_URL}" target="_blank" class="btn-primary mt-4 inline-block">Join Reseller Program →</a>
+                </div>
+            `;
+        }
 
-                    <!-- Filters & Search -->
-                    <div class="flex flex-wrap justify-between items-center gap-4 mb-8">
-                        <div class="flex flex-wrap gap-2">${filterTabs}</div>
-                        <div class="relative">
-                            <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
-                            <input type="text" id="searchInput" placeholder="Search by volume or name..." class="pl-10 pr-4 py-2 rounded-full border border-gray-700 bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-64">
-                        </div>
-                    </div>
-
-                    <!-- Bundles Grid -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="bundlesGrid">
-                        ${bundlesHtml || emptyMessage}
-                    </div>
-
-                    <!-- Reseller CTA -->
-                    <div class="mt-16 glass-card p-8 text-center">
-                        <div class="font-bold text-2xl text-white">🚀 Become a reseller & unlock API access</div>
-                        <p class="mt-2 text-gray-300">Join 40k+ resellers and earn extra profit per bundle.</p>
-                        <a href="${ORIGINAL_SHOP_BASE}" target="_blank" rel="noopener noreferrer" class="inline-block mt-6 btn-primary">Join Reseller Program →</a>
+        function renderDetail(bundle) {
+            return `
+                <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-sm p-8">
+                    <a href="/" class="text-blue-600 mb-4 inline-block">← Back to home</a>
+                    <h1 class="text-3xl font-bold">${bundle.name}</h1>
+                    <p class="text-gray-500 mt-1">${bundle.volume} • ${bundle.validity}</p>
+                    <div class="text-4xl font-black mt-4">₵${bundle.price.toFixed(2)}</div>
+                    <p class="mt-6 text-gray-600">${bundle.description || "Get this bundle instantly. Best price guaranteed."}</p>
+                    <div class="mt-8">
+                        <a href="${SHOP_URL}" target="_blank" class="btn-primary px-6 py-2">Buy Now →</a>
                     </div>
                 </div>
             `;
         }
 
-        // Product detail page (with direct purchase link to original shop)
-        function renderBundleDetail(bundle) {
-            const link = getBundleLink(bundle.id);
-            const schema = {
-                "@context": "https://schema.org",
-                "@type": "Product",
-                "name": `${bundle.name} Data Bundle`,
-                "description": bundle.description,
-                "sku": bundle.id,
-                "offers": {
-                    "@type": "Offer",
-                    "price": bundle.price,
-                    "priceCurrency": "GHS",
-                    "availability": "https://schema.org/InStock",
-                    "url": link
-                }
-            };
-            return `
-                <div class="max-w-7xl mx-auto px-6 py-10 fade-in">
-                    <nav class="text-sm text-gray-500 mb-6"><a href="/" class="hover:text-blue-400" id="breadcrumbHome">Home</a> / <span class="text-gray-300">${bundle.name}</span></nav>
-                    <div class="grid md:grid-cols-2 gap-12 glass-card p-8 md:p-10">
-                        <div>
-                            <span class="network-badge mb-4"><i class="fas fa-tower-cell"></i> ${bundle.network}</span>
-                            <h1 class="text-4xl md:text-5xl font-black mb-3 text-white">${bundle.name} <span class="text-blue-400">${bundle.volume}</span></h1>
-                            <p class="text-gray-300 text-lg mb-6">${bundle.description}</p>
-                            <div class="flex gap-6 items-baseline flex-wrap">
-                                <div><span class="text-3xl font-bold text-white">₵${bundle.price.toFixed(2)}</span><span class="text-gray-400"> / bundle</span></div>
-                                <div class="bg-green-900/40 text-green-300 px-3 py-1 rounded-full text-sm border border-green-500/30"><i class="far fa-clock"></i> Valid: ${bundle.validity}</div>
-                            </div>
-                            <div class="mt-8 flex gap-4">
-                                <a href="${link}" target="_blank" rel="noopener noreferrer" class="btn-primary px-8 py-3 text-lg inline-block"><i class="fas fa-bolt"></i> Buy Now — Instant Delivery</a>
-                                <a href="/" class="btn-outline py-3 px-6 text-center">← Browse All Bundles</a>
-                            </div>
-                            <div class="mt-8 border-t border-gray-700 pt-6 text-sm text-gray-400 flex gap-4"><i class="fas fa-check-circle text-green-500"></i> 10-45 min delivery • 100% secure • 24/7 support</div>
-                        </div>
-                        <div class="bg-gray-800/50 rounded-2xl p-6 flex flex-col gap-4 border border-gray-700">
-                            <div class="flex items-center gap-2 text-xl font-semibold text-white"><i class="fas fa-chart-line text-blue-400"></i> Why GHDatamart?</div>
-                            <ul class="space-y-2 text-gray-300"><li><i class="fas fa-check-circle text-green-500"></i> Lowest price guarantee</li><li><i class="fas fa-rocket"></i> AI-powered delivery tracking</li><li><i class="fas fa-users"></i> Trusted by 50k+ resellers</li></ul>
-                            <div class="mt-4 bg-gray-900 rounded-xl p-4 shadow-sm"><span class="font-bold text-white">⭐ Reseller price?</span> <span class="block text-sm text-gray-300">Wholesale discounts on 5+ bundles — contact support.</span></div>
-                        </div>
-                    </div>
-                </div>
-                <script type="application/ld+json">${JSON.stringify(schema)}<\/script>
-            `;
-        }
-
-        // Router & State
-        function navigateTo(path, updateHistory = true) {
-            const pathname = path.split('?')[0];
-            if (pathname === '/' || pathname === '') {
-                renderHomeWithState();
-                if (updateHistory) window.history.pushState({}, '', '/');
-                document.title = "GHDatamart | Best Data Bundles Ghana";
-                return;
-            }
-            if (pathname.startsWith('/bundle/')) {
-                const slug = pathname.split('/bundle/')[1];
-                const bundle = bundlesCatalog.find(b => b.id === slug);
+        // Simple router
+        function navigate(path) {
+            if (path === '/' || path === '') {
+                document.getElementById('app-root').innerHTML = renderHome();
+                attachHomeEvents();
+            } else if (path.startsWith('/bundle/')) {
+                const id = path.split('/bundle/')[1];
+                const bundle = bundles.find(b => b.id === id);
                 if (bundle) {
-                    document.getElementById('app-root').innerHTML = renderBundleDetail(bundle);
-                    if (updateHistory) window.history.pushState({}, '', pathname);
-                    document.title = `${bundle.name} - ₵${bundle.price} | GHDatamart`;
-                    attachHomeLinkEvents();
-                    return;
+                    document.getElementById('app-root').innerHTML = renderDetail(bundle);
+                } else {
+                    navigate('/');
                 }
-            }
-            navigateTo('/', updateHistory);
-        }
-
-        function renderHomeWithState(filter = "all", search = "") {
-            const homeHtml = renderHomePage(filter, search);
-            document.getElementById('app-root').innerHTML = homeHtml;
-            attachFilterEvents();
-            attachViewDetailLinks();
-            attachHomeLinkEvents();
-
-            const searchInput = document.getElementById('searchInput');
-            if (searchInput) {
-                searchInput.value = search;
-                searchInput.addEventListener('input', (e) => {
-                    const term = e.target.value.toLowerCase();
-                    const activeFilter = document.querySelector('.filter-tab.active')?.dataset.network || 'all';
-                    renderHomeWithState(activeFilter, term);
-                });
+            } else {
+                navigate('/');
             }
         }
 
-        function attachFilterEvents() {
+        function attachHomeEvents() {
             document.querySelectorAll('.filter-tab').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const network = btn.dataset.network;
-                    const searchTerm = document.getElementById('searchInput')?.value || '';
-                    renderHomeWithState(network, searchTerm);
+                btn.addEventListener('click', (e) => {
+                    const net = btn.dataset.network;
+                    const search = document.getElementById('searchInput')?.value.toLowerCase() || '';
+                    document.getElementById('app-root').innerHTML = renderHome(net, search);
+                    attachHomeEvents();
                 });
             });
-        }
-
-        function attachViewDetailLinks() {
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    const term = e.target.value.toLowerCase();
+                    const active = document.querySelector('.filter-tab.active')?.dataset.network || 'all';
+                    document.getElementById('app-root').innerHTML = renderHome(active, term);
+                    attachHomeEvents();
+                });
+            }
             document.querySelectorAll('.view-detail').forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     const href = link.getAttribute('href');
-                    if (href) navigateTo(href, true);
+                    if (href) navigate(href);
                 });
             });
         }
 
-        function attachHomeLinkEvents() {
-            const homeLink = document.getElementById('navHome');
-            const navBundles = document.getElementById('navBundles');
-            if (homeLink) homeLink.addEventListener('click', (e) => { e.preventDefault(); navigateTo('/', true); });
-            if (navBundles) navBundles.addEventListener('click', (e) => { e.preventDefault(); navigateTo('/', true); });
-            const breadcrumbHome = document.getElementById('breadcrumbHome');
-            if (breadcrumbHome) breadcrumbHome.addEventListener('click', (e) => { e.preventDefault(); navigateTo('/', true); });
-        }
-
-        // Floating WhatsApp redirect to original shop
-        document.getElementById('whatsappFloatBtn')?.addEventListener('click', () => {
-            window.location.href = ORIGINAL_SHOP_BASE;
+        document.getElementById('whatsappBtn')?.addEventListener('click', () => {
+            window.location.href = SHOP_URL;
         });
 
-        window.addEventListener('popstate', () => navigateTo(window.location.pathname, false));
-        document.addEventListener('DOMContentLoaded', () => navigateTo(window.location.pathname, false));
-    </script>
+        document.getElementById('navHome')?.addEventListener('click', (e) => { e.preventDefault(); navigate('/'); });
+        document.getElementById('navBundles')?.addEventListener('click', (e) => { e.preventDefault(); navigate('/'); });
 
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "GHDatamart",
-        "url": "https://ghdatamart.com",
-        "description": "Ghana's #1 intelligent data bundles marketplace with instant delivery and wholesale prices."
-    }
+        // Initial load
+        navigate(window.location.pathname);
     </script>
 </body>
 </html>
