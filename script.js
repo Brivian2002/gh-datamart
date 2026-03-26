@@ -1,6 +1,7 @@
 // ========== CONFIGURATION ==========
 // Replace with your actual shop URL (the main page)
 const SHOP_URL = "https://www.cheapdata.shop/shop/brivian-ltd";
+const WHATSAPP_CHANNEL_URL = "https://whatsapp.com/channel/0029VbBi57OKgsNrDCV4zs1E-";
 
 // Bundle data (prices, names, etc.)
 const bundles = [
