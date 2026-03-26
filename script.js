@@ -3,25 +3,46 @@ const SHOP_URL = "https://www.cheapdata.shop/shop/brivian-ltd";
 const RESELLER_URL = "https://www.cheapdata.shop/shop/brivian-ltd/join";
 const WHATSAPP_CHANNEL = "https://whatsapp.com/channel/0029VbBi57OKgsNrDCV4zs1E";
 
-// ========== BUNDLE DATA (NO PRICES) ==========
+// ========== BUNDLE DATA (with prices and 90-day validity) ==========
 const bundles = [
-    { id: "mtn-1gb", name: "MTN 1GB", network: "MTN", volume: "1 GB", validity: "24h", popular: true, description: "High speed 4G+ data." },
-    { id: "mtn-3gb", name: "MTN 3GB", network: "MTN", volume: "3 GB", validity: "3d", popular: true },
-    { id: "mtn-5gb", name: "MTN 5GB", network: "MTN", volume: "5 GB", validity: "7d", popular: false },
-    { id: "mtn-10gb", name: "MTN 10GB", network: "MTN", volume: "10 GB", validity: "30d", popular: true },
-    { id: "mtn-20gb", name: "MTN 20GB", network: "MTN", volume: "20 GB", validity: "30d", popular: false },
-    { id: "vod-2gb", name: "Vodafone 2GB", network: "Vodafone", volume: "2 GB", validity: "24h", popular: false },
-    { id: "vod-5gb", name: "Vodafone 5GB", network: "Vodafone", volume: "5 GB", validity: "7d", popular: true },
-    { id: "vod-10gb", name: "Vodafone 10GB", network: "Vodafone", volume: "10 GB", validity: "30d", popular: true },
-    { id: "vod-15gb", name: "Vodafone 15GB", network: "Vodafone", volume: "15 GB", validity: "30d", popular: false },
-    { id: "airtel-1gb", name: "AirtelTigo 1GB", network: "AirtelTigo", volume: "1 GB", validity: "24h", popular: true },
-    { id: "airtel-3gb", name: "AirtelTigo 3GB", network: "AirtelTigo", volume: "3 GB", validity: "3d", popular: false },
-    { id: "airtel-5gb", name: "AirtelTigo 5GB", network: "AirtelTigo", volume: "5 GB", validity: "7d", popular: true },
-    { id: "airtel-10gb", name: "AirtelTigo 10GB", network: "AirtelTigo", volume: "10 GB", validity: "30d", popular: false },
-    { id: "glo-1gb", name: "Glo 1GB", network: "Glo", volume: "1 GB", validity: "24h", popular: true },
-    { id: "glo-3gb", name: "Glo 3GB", network: "Glo", volume: "3 GB", validity: "3d", popular: false },
-    { id: "glo-7gb", name: "Glo 7GB", network: "Glo", volume: "7 GB", validity: "14d", popular: true },
-    { id: "glo-15gb", name: "Glo 15GB", network: "Glo", volume: "15 GB", validity: "30d", popular: false }
+    // MTN
+    { id: "mtn-1gb", name: "MTN 1GB", network: "MTN", volume: "1 GB", price: 5.00, validity: "90 days", popular: true },
+    { id: "mtn-2gb", name: "MTN 2GB", network: "MTN", volume: "2 GB", price: 10.00, validity: "90 days", popular: false },
+    { id: "mtn-3gb", name: "MTN 3GB", network: "MTN", volume: "3 GB", price: 14.00, validity: "90 days", popular: false },
+    { id: "mtn-4gb", name: "MTN 4GB", network: "MTN", volume: "4 GB", price: 19.50, validity: "90 days", popular: false },
+    { id: "mtn-5gb", name: "MTN 5GB", network: "MTN", volume: "5 GB", price: 25.00, validity: "90 days", popular: false },
+    { id: "mtn-6gb", name: "MTN 6GB", network: "MTN", volume: "6 GB", price: 29.50, validity: "90 days", popular: false },
+    { id: "mtn-8gb", name: "MTN 8GB", network: "MTN", volume: "8 GB", price: 38.00, validity: "90 days", popular: false },
+    { id: "mtn-10gb", name: "MTN 10GB", network: "MTN", volume: "10 GB", price: 45.00, validity: "90 days", popular: true },
+    { id: "mtn-15gb", name: "MTN 15GB", network: "MTN", volume: "15 GB", price: 65.00, validity: "90 days", popular: false },
+    { id: "mtn-20gb", name: "MTN 20GB", network: "MTN", volume: "20 GB", price: 85.00, validity: "90 days", popular: false },
+    { id: "mtn-25gb", name: "MTN 25GB", network: "MTN", volume: "25 GB", price: 110.00, validity: "90 days", popular: false },
+    { id: "mtn-30gb", name: "MTN 30GB", network: "MTN", volume: "30 GB", price: 126.00, validity: "90 days", popular: false },
+    { id: "mtn-40gb", name: "MTN 40GB", network: "MTN", volume: "40 GB", price: 165.00, validity: "90 days", popular: false },
+    { id: "mtn-50gb", name: "MTN 50GB", network: "MTN", volume: "50 GB", price: 208.00, validity: "90 days", popular: false },
+
+    // Telecel (formerly Vodafone)
+    { id: "telecel-10gb", name: "Telecel 10GB", network: "Telecel", volume: "10 GB", price: 41.00, validity: "90 days", popular: true },
+    { id: "telecel-15gb", name: "Telecel 15GB", network: "Telecel", volume: "15 GB", price: 57.00, validity: "90 days", popular: false },
+    { id: "telecel-20gb", name: "Telecel 20GB", network: "Telecel", volume: "20 GB", price: 76.00, validity: "90 days", popular: false },
+    { id: "telecel-25gb", name: "Telecel 25GB", network: "Telecel", volume: "25 GB", price: 95.00, validity: "90 days", popular: false },
+    { id: "telecel-30gb", name: "Telecel 30GB", network: "Telecel", volume: "30 GB", price: 110.00, validity: "90 days", popular: false },
+    { id: "telecel-35gb", name: "Telecel 35GB", network: "Telecel", volume: "35 GB", price: 135.00, validity: "90 days", popular: false },
+    { id: "telecel-40gb", name: "Telecel 40GB", network: "Telecel", volume: "40 GB", price: 147.00, validity: "90 days", popular: false },
+    { id: "telecel-45gb", name: "Telecel 45GB", network: "Telecel", volume: "45 GB", price: 158.00, validity: "90 days", popular: false },
+    { id: "telecel-50gb", name: "Telecel 50GB", network: "Telecel", volume: "50 GB", price: 182.00, validity: "90 days", popular: false },
+    { id: "telecel-100gb", name: "Telecel 100GB", network: "Telecel", volume: "100 GB", price: 402.00, validity: "90 days", popular: false },
+
+    // AirtelTigo
+    { id: "airtel-1gb", name: "AirtelTigo 1GB", network: "AirtelTigo", volume: "1 GB", price: 4.50, validity: "90 days", popular: true },
+    { id: "airtel-2gb", name: "AirtelTigo 2GB", network: "AirtelTigo", volume: "2 GB", price: 10.00, validity: "90 days", popular: false },
+    { id: "airtel-3gb", name: "AirtelTigo 3GB", network: "AirtelTigo", volume: "3 GB", price: 14.00, validity: "90 days", popular: false },
+    { id: "airtel-4gb", name: "AirtelTigo 4GB", network: "AirtelTigo", volume: "4 GB", price: 17.40, validity: "90 days", popular: false },
+    { id: "airtel-5gb", name: "AirtelTigo 5GB", network: "AirtelTigo", volume: "5 GB", price: 20.50, validity: "90 days", popular: false },
+    { id: "airtel-6gb", name: "AirtelTigo 6GB", network: "AirtelTigo", volume: "6 GB", price: 26.00, validity: "90 days", popular: false },
+    { id: "airtel-8gb", name: "AirtelTigo 8GB", network: "AirtelTigo", volume: "8 GB", price: 34.00, validity: "90 days", popular: false },
+    { id: "airtel-10gb", name: "AirtelTigo 10GB", network: "AirtelTigo", volume: "10 GB", price: 41.00, validity: "90 days", popular: true },
+    { id: "airtel-12gb", name: "AirtelTigo 12GB", network: "AirtelTigo", volume: "12 GB", price: 48.00, validity: "90 days", popular: false }
 ];
 
 // ========== RENDER HOME PAGE ==========
@@ -33,7 +54,7 @@ function renderHome(filterNetwork = "all", searchTerm = "") {
         b.volume.toLowerCase().includes(searchTerm)
     );
 
-    const networks = ["all", "MTN", "Vodafone", "AirtelTigo", "Glo"];
+    const networks = ["all", "MTN", "Telecel", "AirtelTigo"];
     const filterButtons = networks.map(net => `
         <button class="filter-btn ${filterNetwork === net ? 'active' : ''}" data-network="${net}">
             ${net === "all" ? "All Networks" : net}
@@ -48,6 +69,7 @@ function renderHome(filterNetwork = "all", searchTerm = "") {
             </div>
             <div class="bundle-name">${bundle.name}</div>
             <div class="bundle-meta">${bundle.volume} • ${bundle.validity}</div>
+            <div class="bundle-price">₵${bundle.price.toFixed(2)}</div>
             <div style="margin-top: 1rem;">
                 <a href="${SHOP_URL}" target="_blank" class="buy-btn">Buy Now →</a>
             </div>
