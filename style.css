@@ -1,4 +1,4 @@
-/* Reset & Base */
+/* ===== GLOBAL RESET & COLORS ===== */
 * {
     margin: 0;
     padding: 0;
@@ -7,8 +7,8 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #f8fafc;
-    color: #0f172a;
+    background: #0a0c10;  /* deep black‑navy base */
+    color: #e5e7eb;
     line-height: 1.5;
 }
 
@@ -18,10 +18,10 @@ body {
     padding: 0 1.5rem;
 }
 
-/* Navigation */
+/* ===== NAVIGATION ===== */
 .navbar {
-    background: white;
-    border-bottom: 1px solid #e2e8f0;
+    background: #030712;  /* almost black */
+    border-bottom: 1px solid #1f2a3a;
     position: sticky;
     top: 0;
     z-index: 50;
@@ -45,12 +45,12 @@ body {
 }
 
 .logo i {
-    color: #2563eb;
+    color: #fbbf24;  /* yellow */
     font-size: 1.8rem;
 }
 
-.text-blue {
-    color: #2563eb;
+.text-yellow {
+    color: #fbbf24;
 }
 
 .nav-links {
@@ -61,95 +61,124 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: #334155;
+    color: #cbd5e1;
     font-weight: 500;
     transition: color 0.2s;
 }
 
 .nav-links a:hover {
-    color: #2563eb;
+    color: #fbbf24;
 }
 
 .btn-reseller {
-    background: #2563eb;
+    background: #1e3a8a;  /* deep navy */
     color: white !important;
     padding: 0.4rem 1rem;
     border-radius: 2rem;
     font-size: 0.875rem;
+    border: 1px solid #2563eb;
 }
 
 .btn-reseller:hover {
-    background: #1d4ed8;
+    background: #2563eb;
+    border-color: #fbbf24;
 }
 
-/* Main content */
+/* ===== MAIN CONTENT ===== */
 .main-content {
     min-height: 70vh;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding: 2rem 0;
 }
 
 .loading {
     text-align: center;
     padding: 3rem;
-    color: #64748b;
+    color: #9ca3af;
 }
 
-/* Hero */
+/* ===== HERO SECTION (injected via JS) ===== */
 .hero {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    background: linear-gradient(135deg, #030712 0%, #0f172a 100%);
+    border-radius: 2rem;
+    padding: 2rem 1rem;
+    border: 1px solid #1e293b;
 }
 
 .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: 800;
-    background: linear-gradient(135deg, #0f2b3d, #1e4a6e);
+    background: linear-gradient(135deg, #ffffff, #fbbf24);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    letter-spacing: -0.02em;
 }
 
-.hero p {
-    color: #475569;
+.hero .tagline {
+    font-size: 1.2rem;
+    color: #94a3b8;
     margin-top: 0.5rem;
 }
 
-/* Filter tabs */
+.whatsapp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #065f46;
+    padding: 0.5rem 1rem;
+    border-radius: 3rem;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.whatsapp-badge i {
+    font-size: 1.2rem;
+    color: #25d366;
+}
+
+/* ===== FILTER & SEARCH ===== */
+.filter-section {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
 .filter-tabs {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-bottom: 1.5rem;
 }
 
 .filter-btn {
-    background: #f1f5f9;
-    color: #334155;
+    background: #1f2937;
+    color: #e2e8f0;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.2rem;
     border-radius: 2rem;
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s;
 }
 
 .filter-btn.active {
-    background: #2563eb;
-    color: white;
+    background: #fbbf24;
+    color: #030712;
 }
 
 .filter-btn:hover:not(.active) {
-    background: #e2e8f0;
+    background: #374151;
 }
 
-/* Search */
 .search-wrapper {
     position: relative;
-    margin-bottom: 2rem;
-    width: 100%;
-    max-width: 300px;
+    width: 260px;
 }
 
 .search-wrapper i {
@@ -157,68 +186,65 @@ body {
     left: 1rem;
     top: 50%;
     transform: translateY(-50%);
-    color: #94a3b8;
+    color: #9ca3af;
 }
 
 .search-input {
     width: 100%;
-    padding: 0.6rem 1rem 0.6rem 2.5rem;
-    border: 1px solid #cbd5e1;
+    padding: 0.5rem 1rem 0.5rem 2.3rem;
+    border: 1px solid #334155;
     border-radius: 2rem;
-    font-size: 0.875rem;
+    background: #111827;
+    color: white;
+    font-size: 0.85rem;
     outline: none;
-    transition: border 0.2s, box-shadow 0.2s;
 }
 
 .search-input:focus {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    border-color: #fbbf24;
 }
 
-/* Bundles grid */
+/* ===== BUNDLES GRID ===== */
 .bundles-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.5rem;
-    margin-top: 1rem;
+    margin: 1.5rem 0;
 }
 
-/* Bundle card */
 .bundle-card {
-    background: white;
-    border-radius: 1rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    border: 1px solid #e2e8f0;
-    transition: all 0.2s;
-    display: flex;
-    flex-direction: column;
-    padding: 1.25rem;
+    background: #111827;
+    border-radius: 1.2rem;
+    border: 1px solid #1f2a3a;
+    padding: 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .bundle-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
-    border-color: #cbd5e1;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px -10px rgba(0,0,0,0.4);
+    border-color: #fbbf24;
 }
 
 .card-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    margin-bottom: 1rem;
 }
 
 .network-badge {
-    background: #eef2ff;
-    color: #1e40af;
-    padding: 0.25rem 0.7rem;
+    background: #1e3a8a;
+    padding: 0.2rem 0.8rem;
     border-radius: 2rem;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
+    color: #fbbf24;
 }
 
 .popular-badge {
-    background: #fef3c7;
-    color: #b45309;
+    background: #fbbf24;
+    color: #030712;
     font-size: 0.7rem;
     padding: 0.2rem 0.6rem;
     border-radius: 2rem;
@@ -226,158 +252,203 @@ body {
 }
 
 .bundle-name {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-weight: 700;
-    margin-top: 0.75rem;
+    margin: 0.5rem 0 0.2rem;
+    color: white;
 }
 
 .bundle-meta {
-    color: #64748b;
-    font-size: 0.875rem;
-    margin-top: 0.25rem;
-}
-
-.bundle-price {
-    font-size: 1.5rem;
-    font-weight: 800;
-    margin-top: 1rem;
-}
-
-.card-actions {
-    margin-top: 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.view-detail {
-    color: #2563eb;
-    text-decoration: none;
-    font-size: 0.875rem;
-    font-weight: 600;
-}
-
-.view-detail:hover {
-    text-decoration: underline;
+    color: #9ca3af;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
 }
 
 .buy-btn {
-    background: #f1f5f9;
+    background: #fbbf24;
+    color: #030712;
     border: none;
-    padding: 0.35rem 1rem;
+    padding: 0.5rem 1rem;
     border-radius: 2rem;
-    font-size: 0.875rem;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     transition: background 0.2s;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 0.85rem;
 }
 
 .buy-btn:hover {
-    background: #e2e8f0;
+    background: #eab308;
 }
 
-/* Reseller CTA */
-.reseller-cta {
-    margin-top: 4rem;
-    background: #eff6ff;
+/* ===== READY TO GET STARTED SECTION ===== */
+.cta-section {
+    background: linear-gradient(135deg, #0f172a, #030712);
+    border-radius: 2rem;
+    padding: 2.5rem;
+    text-align: center;
+    margin: 3rem 0 2rem;
+    border: 1px solid #1e293b;
+}
+
+.cta-section h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.cta-section p {
+    color: #94a3b8;
+    margin-bottom: 1.5rem;
+}
+
+.btn-large {
+    background: #fbbf24;
+    color: #030712;
+    padding: 0.8rem 2rem;
+    border-radius: 3rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.2s;
+}
+
+.btn-large:hover {
+    transform: scale(1.02);
+    background: #eab308;
+}
+
+/* ===== WHATSAPP CHANNEL CARD ===== */
+.whatsapp-card {
+    background: #065f46;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.whatsapp-card .info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.whatsapp-card .info i {
+    font-size: 2.5rem;
+    color: #25d366;
+}
+
+.whatsapp-card .info h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+}
+
+.whatsapp-card .info p {
+    color: #d1fae5;
+    font-size: 0.9rem;
+}
+
+.whatsapp-card .member-count {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #fbbf24;
+    letter-spacing: -0.02em;
+}
+
+.whatsapp-card a {
+    background: white;
+    color: #065f46;
+    padding: 0.6rem 1.2rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.whatsapp-card a:hover {
+    background: #fbbf24;
+    color: #030712;
+}
+
+/* ===== RESELLER PROMO ===== */
+.reseller-promo {
+    background: #111827;
     border-radius: 1.5rem;
     padding: 2rem;
     text-align: center;
+    border: 1px solid #1e293b;
+    margin: 2rem 0;
 }
 
-.reseller-cta h3 {
+.reseller-promo h3 {
     font-size: 1.5rem;
     font-weight: 700;
+    color: #fbbf24;
 }
 
-.reseller-cta p {
-    margin-top: 0.5rem;
-    color: #475569;
+.reseller-promo p {
+    margin: 0.5rem 0 1rem;
+    color: #9ca3af;
 }
 
-.btn-primary {
-    background: #2563eb;
+.reseller-link {
+    background: #1e3a8a;
     color: white;
     padding: 0.6rem 1.5rem;
     border-radius: 2rem;
     text-decoration: none;
     font-weight: 600;
     display: inline-block;
-    margin-top: 1rem;
-    transition: background 0.2s;
 }
 
-.btn-primary:hover {
-    background: #1d4ed8;
+.reseller-link:hover {
+    background: #2563eb;
 }
 
-/* Detail page */
-.detail-card {
-    background: white;
-    border-radius: 1rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    border: 1px solid #e2e8f0;
-    padding: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.detail-price {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin: 1rem 0;
-}
-
-/* WhatsApp float */
-.whatsapp-float {
-    position: fixed;
-    bottom: 1.5rem;
-    right: 1.5rem;
-    background: #25d366;
-    color: white;
-    border-radius: 3rem;
-    padding: 0.75rem 1.5rem;
-    font-weight: 600;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    z-index: 1000;
-    transition: transform 0.2s;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.02);
-}
-
-/* Footer */
+/* ===== FOOTER ===== */
 .footer {
-    background: #0f172a;
-    color: #cbd5e1;
+    background: #030712;
+    border-top: 1px solid #1f2a3a;
     text-align: center;
     padding: 1.5rem 0;
     margin-top: 3rem;
-    font-size: 0.875rem;
+    font-size: 0.8rem;
+    color: #6b7280;
 }
 
-/* Responsive */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     .nav-container {
         flex-direction: column;
         align-items: stretch;
-        gap: 0.75rem;
     }
     .nav-links {
         justify-content: center;
     }
-    .bundles-grid {
-        grid-template-columns: 1fr;
-    }
-    .filter-tabs {
-        justify-content: center;
+    .filter-section {
+        flex-direction: column;
+        align-items: stretch;
     }
     .search-wrapper {
-        max-width: 100%;
+        width: 100%;
+    }
+    .whatsapp-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .cta-section h2 {
+        font-size: 1.5rem;
     }
 }
