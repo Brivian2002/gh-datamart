@@ -14,153 +14,111 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://smartdatagh.com/og-image.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SmartDataGh - #1 Smart Data Bundles Ghana">
-    <meta name="twitter:description" content="Buy data bundles instantly. Best prices guaranteed.">
     
-    <!-- Preconnect & Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS + Font Awesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom styles for extra polish -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Inter', sans-serif;
-            background: #f8fafc;
-            color: #0f172a;
-            scroll-behavior: smooth;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
-
         .glass-card {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 2rem;
-            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.05);
-            transition: all 0.2s ease;
+            border: 1px solid rgba(255,255,255,0.5);
         }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #0f2b3d 0%, #1e4a6e 100%);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.8rem;
-            border-radius: 2rem;
-            font-weight: 600;
-            transition: all 0.25s ease;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            background: linear-gradient(135deg, #1a3f57, #236b97);
-            box-shadow: 0 12px 20px -12px #0f2b3d60;
-        }
-        .btn-outline {
-            background: transparent;
-            border: 1.5px solid #1e4a6e;
-            color: #1e4a6e;
-            padding: 0.6rem 1.4rem;
-            border-radius: 2rem;
-            font-weight: 600;
-            transition: 0.2s;
-        }
-        .btn-outline:hover {
-            background: #1e4a6e10;
-            border-color: #0f2b3d;
-        }
-
-        .network-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: #eef2ff;
-            padding: 6px 14px;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .bundle-card {
-            transition: transform 0.2s ease, box-shadow 0.2s;
+        .gradient-border {
+            position: relative;
+            background: linear-gradient(135deg, #0f2b3d, #1e4a6e);
             border-radius: 1.5rem;
-            overflow: hidden;
+            padding: 1px;
+        }
+        .gradient-border > div {
+            background: white;
+            border-radius: 1.5rem;
+        }
+        .bundle-card {
+            transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
         }
         .bundle-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 25px 35px -15px rgba(0,0,0,0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 40px -12px rgba(0,0,0,0.2);
         }
-
+        .network-tab-active {
+            background: #1e4a6e;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
         .whatsapp-float {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
+            bottom: 28px;
+            right: 28px;
+            background: #25D366;
             color: white;
-            border-radius: 50px;
+            border-radius: 60px;
             padding: 12px 24px;
-            font-weight: bold;
+            font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            gap: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
             z-index: 1000;
             cursor: pointer;
-            transition: 0.2s;
-            font-size: 1rem;
+            transition: transform 0.2s;
         }
         .whatsapp-float:hover {
             transform: scale(1.05);
-            background-color: #20b359;
+            background: #20b359;
         }
-
-        footer a {
-            color: #cbd5e1;
-            transition: color 0.2s;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        footer a:hover { color: white; }
-
-        @media (max-width: 768px) {
-            .container { padding-left: 1.2rem; padding-right: 1.2rem; }
-            h1 { font-size: 2rem; }
+        .fade-in {
+            animation: fadeIn 0.4s ease-out;
+        }
+        .skeleton {
+            background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.2s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-50 antialiased">
 
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-gray-200/60">
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/60 shadow-sm">
         <div class="max-w-7xl mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-4">
             <div class="flex items-center gap-2">
                 <i class="fas fa-brain text-3xl text-[#1e4a6e]"></i>
                 <span class="font-extrabold text-2xl tracking-tight">SmartData<span class="text-[#1e4a6e]">Gh</span></span>
-                <span class="ml-2 bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded-full">⚡ AI-PRICED</span>
+                <span class="ml-2 bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded-full font-semibold">⚡ AI-PRICED</span>
             </div>
             <div class="flex gap-4 items-center">
-                <a href="#" class="hidden md:block text-gray-700 hover:text-[#1e4a6e] font-medium" id="navHome">Home</a>
-                <a href="#" class="hidden md:block text-gray-700 hover:text-[#1e4a6e] font-medium" id="navBundles">All Bundles</a>
-                <!-- This "Reseller Hub" also redirects to the original shop -->
-                <a href="https://www.cheapdata.shop/shop/brivian-ltd" target="_blank" rel="noopener noreferrer" class="bg-[#1e4a6e] text-white px-5 py-2 rounded-full text-sm font-semibold shadow-md">Reseller Hub →</a>
+                <a href="#" class="hidden md:block text-gray-700 hover:text-[#1e4a6e] font-medium transition" id="navHome">Home</a>
+                <a href="#" class="hidden md:block text-gray-700 hover:text-[#1e4a6e] font-medium transition" id="navBundles">All Bundles</a>
+                <!-- Redirect to original shop -->
+                <a href="https://www.cheapdata.shop/shop/brivian-ltd" target="_blank" rel="noopener noreferrer" class="bg-[#1e4a6e] text-white px-5 py-2 rounded-full text-sm font-semibold shadow-md hover:bg-[#0f2b3d] transition">Reseller Hub →</a>
             </div>
         </div>
     </nav>
 
-    <!-- Main content container (dynamic) -->
+    <!-- Main Content -->
     <main id="app-root" class="min-h-screen">
-        <!-- Content will be injected by JS -->
+        <!-- Loading skeleton -->
         <div class="flex justify-center items-center py-32">
             <div class="skeleton w-16 h-16 rounded-full"></div>
         </div>
     </main>
 
-    <!-- Floating WhatsApp button (redirects to original shop) -->
+    <!-- Floating WhatsApp (redirects to original shop) -->
     <div class="whatsapp-float" id="whatsappFloatBtn">
-        <i class="fab fa-whatsapp fa-2x"></i> 
+        <i class="fab fa-whatsapp fa-xl"></i>
         <span>Order on WhatsApp →</span>
     </div>
 
@@ -175,10 +133,10 @@
     </footer>
 
     <script>
-        // ========== REDIRECT TARGET ==========
+        // ========== EXTERNAL SHOP URL ==========
         const EXTERNAL_SHOP_URL = "https://www.cheapdata.shop/shop/brivian-ltd";
 
-        // All bundle data (same as before, for display)
+        // Bundle Data
         const bundlesCatalog = [
             { id: "mtn-1gb-gh", name: "MTN 1GB", network: "MTN", volume: "1 GB", price: 4.50, validity: "24 hours", popular: true, description: "High speed 4G+ data for MTN. Perfect for daily browsing." },
             { id: "mtn-3gb-gh", name: "MTN 3GB", network: "MTN", volume: "3 GB", price: 11.00, validity: "3 days", popular: true, description: "Social media & streaming pack." },
@@ -200,7 +158,84 @@
             { id: "mtn-40gb-gh", name: "MTN 40GB", network: "MTN", volume: "40 GB", price: 110.00, validity: "60 days", popular: false, description: "Wholesale reseller bundle." }
         ];
 
-        // Helper: render bundle detail (but all Buy buttons redirect to external)
+        // ========== RENDER FUNCTIONS ==========
+        function renderHomePage(filterNetwork = "all", searchTerm = "") {
+            let filtered = bundlesCatalog;
+            if (filterNetwork !== "all") filtered = filtered.filter(b => b.network === filterNetwork);
+            if (searchTerm) filtered = filtered.filter(b => b.name.toLowerCase().includes(searchTerm) || b.volume.toLowerCase().includes(searchTerm));
+
+            const networks = ["all", "MTN", "Vodafone", "AirtelTigo", "Glo"];
+            const filterTabs = networks.map(net => `
+                <button class="network-tab px-5 py-2 rounded-full text-sm font-medium transition-all ${filterNetwork === net ? 'network-tab-active bg-[#1e4a6e] text-white shadow-md' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}" data-network="${net}">
+                    ${net === "all" ? "All Networks" : net}
+                </button>
+            `).join('');
+
+            const bundlesHtml = filtered.map(bundle => `
+                <div class="bundle-card bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 fade-in">
+                    <div class="p-5 flex flex-col h-full">
+                        <div class="flex justify-between items-start">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-${bundle.network === 'MTN' ? 'yellow' : bundle.network === 'Vodafone' ? 'red' : bundle.network === 'AirtelTigo' ? 'purple' : 'blue'}-100 text-${bundle.network === 'MTN' ? 'yellow' : bundle.network === 'Vodafone' ? 'red' : bundle.network === 'AirtelTigo' ? 'purple' : 'blue'}-800">
+                                <i class="fas fa-tower-cell text-xs"></i> ${bundle.network}
+                            </span>
+                            ${bundle.popular ? '<span class="bg-amber-100 text-amber-800 text-[11px] px-2 py-0.5 rounded-full font-medium">🔥 Popular</span>' : ''}
+                        </div>
+                        <h3 class="text-xl font-bold mt-3 tracking-tight">${bundle.name}</h3>
+                        <p class="text-gray-500 text-sm mt-1">${bundle.volume} • ${bundle.validity}</p>
+                        <div class="mt-4 flex items-baseline gap-1">
+                            <span class="text-2xl font-black text-gray-900">₵${bundle.price.toFixed(2)}</span>
+                            <span class="text-gray-400 text-xs">/bundle</span>
+                        </div>
+                        <p class="text-gray-500 text-sm mt-2 line-clamp-2">${bundle.description}</p>
+                        <div class="mt-6 flex gap-2 items-center">
+                            <a href="/bundle/${bundle.id}" class="text-sm font-semibold text-[#1e4a6e] hover:underline view-detail">View details →</a>
+                            <button class="purchase-btn ml-auto bg-gray-100 hover:bg-gray-200 rounded-full px-4 py-1.5 text-sm font-medium transition" data-id="${bundle.id}">
+                                <i class="fas fa-shopping-cart mr-1"></i> Buy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            const emptyMessage = filtered.length === 0 ? '<div class="col-span-full text-center py-16 text-gray-500">🤖 No bundles found. Try another filter.</div>' : '';
+
+            return `
+                <div class="max-w-7xl mx-auto px-6 py-10">
+                    <!-- Hero -->
+                    <div class="text-center mb-12">
+                        <div class="inline-flex items-center gap-2 bg-gray-100 rounded-full px-4 py-1 text-sm text-gray-600 mb-4">
+                            <i class="fas fa-bolt text-yellow-500"></i> Instant Delivery • 24/7 Support
+                        </div>
+                        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[#0f2b3d] to-[#1e4a6e]">Smart Data Bundles</h1>
+                        <p class="text-gray-600 mt-3 text-lg max-w-2xl mx-auto">Wholesale prices • All networks Ghana 🇬🇭 • 10-45 min delivery</p>
+                    </div>
+
+                    <!-- Filters & Search -->
+                    <div class="flex flex-wrap justify-between items-center gap-4 mb-8">
+                        <div class="flex flex-wrap gap-2">${filterTabs}</div>
+                        <div class="relative">
+                            <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                            <input type="text" id="searchInput" placeholder="Search by volume or name..." class="pl-10 pr-4 py-2 rounded-full border border-gray-200 w-64 focus:outline-none focus:ring-2 focus:ring-[#1e4a6e] focus:border-transparent">
+                        </div>
+                    </div>
+
+                    <!-- Bundles Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="bundlesGrid">
+                        ${bundlesHtml || emptyMessage}
+                    </div>
+
+                    <!-- Reseller CTA -->
+                    <div class="mt-16 gradient-border">
+                        <div class="p-8 text-center bg-white rounded-2xl">
+                            <div class="font-bold text-2xl text-gray-800">🚀 Become a reseller & unlock API access</div>
+                            <p class="mt-2 text-gray-600">Join 40k+ resellers and earn extra profit per bundle.</p>
+                            <a href="${EXTERNAL_SHOP_URL}" target="_blank" rel="noopener noreferrer" class="inline-block mt-6 bg-[#1e4a6e] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#0f2b3d] transition shadow-md">Join Reseller Program →</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
         function renderBundleDetail(bundle) {
             const schema = {
                 "@context": "https://schema.org",
@@ -212,87 +247,37 @@
                     "@type": "Offer",
                     "price": bundle.price,
                     "priceCurrency": "GHS",
-                    "availability": "https://schema.org/InStock",
-                    "priceValidUntil": new Date(Date.now() + 30*86400000).toISOString().split('T')[0]
+                    "availability": "https://schema.org/InStock"
                 }
             };
             return `
-            <div class="max-w-7xl mx-auto px-6 py-10">
-                <nav class="text-sm text-gray-500 mb-6"><a href="/" class="hover:text-[#1e4a6e]" id="breadcrumbHome">Home</a> / <span class="text-gray-700">${bundle.name}</span></nav>
-                <div class="grid md:grid-cols-2 gap-12 glass-card p-8 md:p-10">
-                    <div>
-                        <span class="network-badge mb-4"><i class="fas fa-tower-cell"></i> ${bundle.network}</span>
-                        <h1 class="text-4xl md:text-5xl font-black mb-3">${bundle.name} <span class="text-[#1e4a6e]">${bundle.volume}</span></h1>
-                        <p class="text-gray-600 text-lg mb-6">${bundle.description}</p>
-                        <div class="flex gap-6 items-baseline flex-wrap">
-                            <div><span class="text-3xl font-bold">₵${bundle.price.toFixed(2)}</span><span class="text-gray-500"> / bundle</span></div>
-                            <div class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm"><i class="far fa-clock"></i> Valid: ${bundle.validity}</div>
+                <div class="max-w-7xl mx-auto px-6 py-10 fade-in">
+                    <nav class="text-sm text-gray-500 mb-6"><a href="/" class="hover:text-[#1e4a6e]" id="breadcrumbHome">Home</a> / <span class="text-gray-700">${bundle.name}</span></nav>
+                    <div class="grid md:grid-cols-2 gap-12 bg-white rounded-2xl shadow-lg p-8 md:p-10 border border-gray-100">
+                        <div>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-${bundle.network === 'MTN' ? 'yellow' : bundle.network === 'Vodafone' ? 'red' : bundle.network === 'AirtelTigo' ? 'purple' : 'blue'}-100 text-${bundle.network === 'MTN' ? 'yellow' : bundle.network === 'Vodafone' ? 'red' : bundle.network === 'AirtelTigo' ? 'purple' : 'blue'}-800 mb-4">
+                                <i class="fas fa-tower-cell"></i> ${bundle.network}
+                            </span>
+                            <h1 class="text-4xl md:text-5xl font-black mb-3">${bundle.name} <span class="text-[#1e4a6e]">${bundle.volume}</span></h1>
+                            <p class="text-gray-600 text-lg mb-6">${bundle.description}</p>
+                            <div class="flex gap-6 items-baseline flex-wrap">
+                                <div><span class="text-3xl font-bold">₵${bundle.price.toFixed(2)}</span><span class="text-gray-500"> / bundle</span></div>
+                                <div class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm"><i class="far fa-clock"></i> Valid: ${bundle.validity}</div>
+                            </div>
+                            <div class="mt-8 flex gap-4">
+                                <button class="purchase-btn bg-[#1e4a6e] text-white px-8 py-3 rounded-full font-semibold shadow-md hover:bg-[#0f2b3d] transition"><i class="fas fa-bolt"></i> Buy Now — Instant Delivery</button>
+                                <a href="/" class="border border-gray-300 py-3 px-6 rounded-full font-medium hover:bg-gray-50 transition">← Browse All Bundles</a>
+                            </div>
+                            <div class="mt-8 border-t pt-6 text-sm text-gray-500 flex gap-4"><i class="fas fa-check-circle text-green-600"></i> 10-45 min delivery • 100% secure • 24/7 support</div>
                         </div>
-                        <div class="mt-8 flex gap-4">
-                            <button class="btn-primary px-8 py-3 text-lg purchase-btn" data-id="${bundle.id}"><i class="fas fa-bolt"></i> Buy Now — Instant Delivery</button>
-                            <a href="/" class="btn-outline py-3 px-6 text-center">← Browse All Bundles</a>
+                        <div class="bg-gradient-to-br from-slate-50 to-gray-100 rounded-2xl p-6 flex flex-col gap-4">
+                            <div class="flex items-center gap-2 text-xl font-semibold"><i class="fas fa-chart-line text-[#1e4a6e]"></i> Why SmartDataGh?</div>
+                            <ul class="space-y-2 text-gray-700"><li><i class="fas fa-check-circle text-green-600"></i> Lowest price guarantee</li><li><i class="fas fa-rocket"></i> AI-powered delivery tracking</li><li><i class="fas fa-users"></i> Trusted by 50k+ resellers</li></ul>
+                            <div class="mt-4 bg-white rounded-xl p-4 shadow-sm"><span class="font-bold">⭐ Reseller price?</span> <span class="block text-sm">Wholesale discounts on 5+ bundles — contact support.</span></div>
                         </div>
-                        <div class="mt-8 border-t pt-6 text-sm text-gray-500 flex gap-4"><i class="fas fa-check-circle text-green-600"></i> 10-45 min delivery • 100% secure • 24/7 support</div>
-                    </div>
-                    <div class="bg-gradient-to-br from-slate-50 to-gray-100 rounded-2xl p-6 flex flex-col gap-4">
-                        <div class="flex items-center gap-2 text-xl font-semibold"><i class="fas fa-chart-line"></i> Why SmartDataGh?</div>
-                        <ul class="space-y-2"><li><i class="fas fa-check-circle text-green-600"></i> Lowest price guarantee</li><li><i class="fas fa-rocket"></i> AI-powered delivery tracking</li><li><i class="fas fa-users"></i> Trusted by 50k+ resellers</li></ul>
-                        <div class="mt-4 bg-white rounded-xl p-4"><span class="font-bold">⭐ Reseller price?</span> <span class="block text-sm">Wholesale discounts on 5+ bundles — contact support.</span></div>
                     </div>
                 </div>
-                <div class="mt-12 text-center"><a href="/" class="inline-flex items-center gap-2 text-[#1e4a6e] font-semibold"><i class="fas fa-arrow-left"></i> Back to all data bundles</a></div>
-            </div>
-            <script type="application/ld+json">${JSON.stringify(schema)}<\/script>
-            `;
-        }
-
-        // Homepage (grid of all bundles)
-        function renderHomePage(filterNetwork = "all", searchTerm = "") {
-            let filtered = bundlesCatalog;
-            if (filterNetwork !== "all") filtered = filtered.filter(b => b.network === filterNetwork);
-            if (searchTerm) filtered = filtered.filter(b => b.name.toLowerCase().includes(searchTerm) || b.volume.toLowerCase().includes(searchTerm));
-            
-            const networkFilters = ["all", "MTN", "Vodafone", "AirtelTigo", "Glo"];
-            const filterButtons = networkFilters.map(net => `<button class="filter-btn ${filterNetwork === net ? 'bg-[#1e4a6e] text-white' : 'bg-gray-100 text-gray-700'} px-4 py-2 rounded-full text-sm font-medium transition-all" data-network="${net}">${net === "all" ? "All Networks" : net}</button>`).join('');
-            
-            const bundlesHtml = filtered.map(bundle => `
-                <div class="bundle-card glass-card bg-white p-5 flex flex-col h-full relative">
-                    <div class="flex justify-between items-start">
-                        <span class="network-badge text-xs"><i class="fas fa-signal"></i> ${bundle.network}</span>
-                        ${bundle.popular ? '<span class="bg-amber-100 text-amber-800 text-[11px] px-2 py-0.5 rounded-full">🔥 Popular</span>' : ''}
-                    </div>
-                    <h3 class="text-xl font-bold mt-3">${bundle.name}</h3>
-                    <p class="text-gray-500 text-sm">${bundle.volume} • ${bundle.validity}</p>
-                    <div class="mt-4 flex items-baseline gap-1"><span class="text-2xl font-black">₵${bundle.price.toFixed(2)}</span><span class="text-gray-400 text-sm"></span></div>
-                    <p class="text-xs text-gray-500 mt-1 line-clamp-2">${bundle.description.substring(0, 70)}</p>
-                    <div class="mt-5 flex gap-2">
-                        <a href="/bundle/${bundle.id}" class="text-sm font-semibold text-[#1e4a6e] hover:underline view-detail-link" data-id="${bundle.id}">View details →</a>
-                        <button class="purchase-btn ml-auto bg-gray-100 hover:bg-gray-200 rounded-full px-3 py-1 text-sm" data-id="${bundle.id}"><i class="fas fa-shopping-cart"></i> Buy</button>
-                    </div>
-                </div>
-            `).join('');
-            
-            const emptyState = filtered.length === 0 ? '<div class="col-span-full text-center py-16 text-gray-500">🤖 No bundles found. Try different filter.</div>' : '';
-            
-            return `
-            <div class="max-w-7xl mx-auto px-6 py-8">
-                <div class="text-center mb-12">
-                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">Smart Data <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#0f2b3d] to-[#1e4a6e]">Bundles</span></h1>
-                    <p class="text-gray-600 mt-3 text-lg">Wholesale prices • Instant delivery • All networks Ghana 🇬🇭</p>
-                </div>
-                <div class="flex flex-wrap justify-between gap-4 items-center mb-8">
-                    <div class="flex flex-wrap gap-2">${filterButtons}</div>
-                    <div class="relative"><i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i><input type="text" id="searchInput" placeholder="Search data (e.g., 10GB, MTN)" class="pl-10 pr-4 py-2 rounded-full border border-gray-200 w-64"></div>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="bundlesGrid">
-                    ${bundlesHtml || emptyState}
-                </div>
-                <div class="mt-16 bg-[#eef2ff] rounded-2xl p-8 text-center">
-                    <div class="font-bold text-xl">🚀 Become a reseller & unlock API access</div>
-                    <p class="mt-2">Join 40k+ resellers and earn extra profit per bundle.</p>
-                    <a href="${EXTERNAL_SHOP_URL}" target="_blank" rel="noopener noreferrer" class="btn-primary inline-block mt-4">Join Reseller Program →</a>
-                </div>
-            </div>
+                <script type="application/ld+json">${JSON.stringify(schema)}<\/script>
             `;
         }
 
@@ -309,21 +294,17 @@
                 const slug = pathname.split('/bundle/')[1];
                 const bundle = bundlesCatalog.find(b => b.id === slug);
                 if (bundle) {
-                    const html = renderBundleDetail(bundle);
-                    document.getElementById('app-root').innerHTML = html;
+                    document.getElementById('app-root').innerHTML = renderBundleDetail(bundle);
                     if (updateHistory) window.history.pushState({}, '', pathname);
                     document.title = `${bundle.name} - ₵${bundle.price} | SmartDataGh`;
-                    attachPurchaseEvents();   // attach redirect to external for Buy button
+                    attachPurchaseEvents();
                     attachHomeLinkEvents();
-                    return;
-                } else {
-                    navigateTo('/', updateHistory);
                     return;
                 }
             }
             navigateTo('/', updateHistory);
         }
-        
+
         function renderHomeWithState(filter = "all", search = "") {
             const homeHtml = renderHomePage(filter, search);
             document.getElementById('app-root').innerHTML = homeHtml;
@@ -331,44 +312,30 @@
             attachViewDetailLinks();
             attachPurchaseEvents();
             attachHomeLinkEvents();
+
             const searchInput = document.getElementById('searchInput');
             if (searchInput) {
                 searchInput.value = search;
                 searchInput.addEventListener('input', (e) => {
                     const term = e.target.value.toLowerCase();
-                    const activeFilter = document.querySelector('.filter-btn.bg-\\[\\#1e4a6e\\]')?.dataset.network || 'all';
-                    const newHtml = renderHomePage(activeFilter, term);
-                    document.getElementById('app-root').innerHTML = newHtml;
-                    attachFilterEvents(activeFilter);
-                    attachViewDetailLinks();
-                    attachPurchaseEvents();
-                    attachHomeLinkEvents();
-                    const newSearch = document.getElementById('searchInput');
-                    if(newSearch) newSearch.value = term;
+                    const activeFilter = document.querySelector('.network-tab-active')?.dataset.network || 'all';
+                    renderHomeWithState(activeFilter, term);
                 });
             }
         }
-        
-        function attachFilterEvents(activeNet = "all") {
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
+
+        function attachFilterEvents() {
+            document.querySelectorAll('.network-tab').forEach(btn => {
+                btn.addEventListener('click', () => {
                     const network = btn.dataset.network;
-                    const currentSearch = document.getElementById('searchInput')?.value || '';
-                    const newHtml = renderHomePage(network, currentSearch);
-                    document.getElementById('app-root').innerHTML = newHtml;
-                    attachFilterEvents(network);
-                    attachViewDetailLinks();
-                    attachPurchaseEvents();
-                    attachHomeLinkEvents();
-                    const searchBox = document.getElementById('searchInput');
-                    if(searchBox) searchBox.value = currentSearch;
-                    window.history.pushState({}, '', '/');
+                    const searchTerm = document.getElementById('searchInput')?.value || '';
+                    renderHomeWithState(network, searchTerm);
                 });
             });
         }
-        
+
         function attachViewDetailLinks() {
-            document.querySelectorAll('.view-detail-link').forEach(link => {
+            document.querySelectorAll('.view-detail').forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     const href = link.getAttribute('href');
@@ -376,8 +343,7 @@
                 });
             });
         }
-        
-        // ALL purchase actions go to EXTERNAL_SHOP_URL
+
         function attachPurchaseEvents() {
             document.querySelectorAll('.purchase-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
@@ -386,38 +352,25 @@
                 });
             });
         }
-        
+
         function attachHomeLinkEvents() {
             const homeLink = document.getElementById('navHome');
             const navBundles = document.getElementById('navBundles');
-            if(homeLink) homeLink.addEventListener('click', (e) => { e.preventDefault(); navigateTo('/', true); });
-            if(navBundles) navBundles.addEventListener('click', (e) => { e.preventDefault(); navigateTo('/', true); });
+            if (homeLink) homeLink.addEventListener('click', (e) => { e.preventDefault(); navigateTo('/', true); });
+            if (navBundles) navBundles.addEventListener('click', (e) => { e.preventDefault(); navigateTo('/', true); });
             const breadcrumbHome = document.getElementById('breadcrumbHome');
-            if(breadcrumbHome) breadcrumbHome.addEventListener('click', (e) => { e.preventDefault(); navigateTo('/', true); });
+            if (breadcrumbHome) breadcrumbHome.addEventListener('click', (e) => { e.preventDefault(); navigateTo('/', true); });
         }
-        
-        // Floating WhatsApp button redirect to external shop
-        const whatsappBtn = document.getElementById('whatsappFloatBtn');
-        if (whatsappBtn) {
-            whatsappBtn.addEventListener('click', () => {
-                window.location.href = EXTERNAL_SHOP_URL;
-            });
-        }
-        
-        // Also any footer WhatsApp/phone could redirect? We'll also attach click on footer contact items optionally
-        // For simplicity, any explicit "Order on WhatsApp" is covered.
-        
-        window.addEventListener('popstate', () => {
-            navigateTo(window.location.pathname, false);
+
+        // Floating WhatsApp redirect
+        document.getElementById('whatsappFloatBtn')?.addEventListener('click', () => {
+            window.location.href = EXTERNAL_SHOP_URL;
         });
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            navigateTo(window.location.pathname, false);
-        });
-        
-        // Optional: make any phone/email in footer redirect? but not needed as per user spec.
+
+        window.addEventListener('popstate', () => navigateTo(window.location.pathname, false));
+        document.addEventListener('DOMContentLoaded', () => navigateTo(window.location.pathname, false));
     </script>
-    
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
