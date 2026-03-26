@@ -9,241 +9,38 @@
     <link rel="canonical" href="https://ghdatamart.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #0f172a; }
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
-        /* Light theme card */
-        .bundle-card {
-            background: white;
-            border-radius: 1rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
-            transition: all 0.2s;
-        }
-        .bundle-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
-            border-color: #cbd5e1;
-        }
-        .btn-primary {
-            background: #2563eb;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
-            font-weight: 600;
-            transition: 0.2s;
-            display: inline-block;
-        }
-        .btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); }
-        .network-badge {
-            background: #eef2ff;
-            color: #1e40af;
-            padding: 0.2rem 0.7rem;
-            border-radius: 2rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-        .filter-tab {
-            background: #f1f5f9;
-            color: #334155;
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: 0.2s;
-            cursor: pointer;
-        }
-        .filter-tab.active {
-            background: #2563eb;
-            color: white;
-        }
-        .whatsapp-float {
-            position: fixed;
-            bottom: 1.5rem;
-            right: 1.5rem;
-            background: #25d366;
-            color: white;
-            border-radius: 3rem;
-            padding: 0.75rem 1.5rem;
-            font-weight: 600;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            z-index: 1000;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div class="container py-4 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <i class="fas fa-database text-2xl text-blue-600"></i>
-                <span class="font-bold text-xl">GH<span class="text-blue-600">Datamart</span></span>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-database"></i>
+                <span>GH<span class="text-blue">Datamart</span></span>
             </div>
-            <div class="flex gap-4">
-                <a href="#" id="navHome" class="text-gray-600 hover:text-blue-600">Home</a>
-                <a href="#" id="navBundles" class="text-gray-600 hover:text-blue-600">All Bundles</a>
-                <a href="https://www.cheapdata.shop/shop/brivian-ltd" target="_blank" class="bg-blue-600 text-white px-4 py-1.5 rounded-full text-sm">Reseller Hub →</a>
+            <div class="nav-links">
+                <a href="#" id="navHome">Home</a>
+                <a href="#" id="navBundles">All Bundles</a>
+                <a href="https://www.cheapdata.shop/shop/brivian-ltd" target="_blank" class="btn-reseller">Reseller Hub →</a>
             </div>
         </div>
     </nav>
 
-    <main id="app-root" class="container py-8">
-        <!-- Content will be injected -->
-        <div class="text-center py-20">Loading...</div>
+    <main id="app-root" class="container main-content">
+        <!-- Dynamic content will be injected here -->
+        <div class="loading">Loading...</div>
     </main>
 
     <div class="whatsapp-float" id="whatsappBtn">
         <i class="fab fa-whatsapp"></i> Order on WhatsApp →
     </div>
 
-    <footer class="bg-gray-900 text-gray-300 mt-16 py-8">
-        <div class="container text-center text-sm">© 2025 GHDatamart — Ghana's #1 Data Bundles Marketplace</div>
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 GHDatamart — Ghana's #1 Data Bundles Marketplace</p>
+        </div>
     </footer>
 
-    <script>
-        // ========== CONFIGURATION ==========
-        // Replace with the actual shop URL (without product-specific query)
-        const SHOP_URL = "https://www.cheapdata.shop/shop/brivian-ltd";
-
-        // Bundle data (same as before)
-        const bundles = [
-            { id: "mtn-1gb", name: "MTN 1GB", network: "MTN", volume: "1 GB", price: 4.50, validity: "24h", popular: true },
-            { id: "mtn-3gb", name: "MTN 3GB", network: "MTN", volume: "3 GB", price: 11.00, validity: "3d", popular: true },
-            { id: "mtn-5gb", name: "MTN 5GB", network: "MTN", volume: "5 GB", price: 17.50, validity: "7d", popular: false },
-            { id: "mtn-10gb", name: "MTN 10GB", network: "MTN", volume: "10 GB", price: 32.00, validity: "30d", popular: true },
-            { id: "mtn-20gb", name: "MTN 20GB", network: "MTN", volume: "20 GB", price: 60.00, validity: "30d", popular: false },
-            { id: "vod-2gb", name: "Vodafone 2GB", network: "Vodafone", volume: "2 GB", price: 6.00, validity: "24h", popular: false },
-            { id: "vod-5gb", name: "Vodafone 5GB", network: "Vodafone", volume: "5 GB", price: 14.00, validity: "7d", popular: true },
-            { id: "vod-10gb", name: "Vodafone 10GB", network: "Vodafone", volume: "10 GB", price: 26.00, validity: "30d", popular: true },
-            { id: "vod-15gb", name: "Vodafone 15GB", network: "Vodafone", volume: "15 GB", price: 38.00, validity: "30d", popular: false },
-            { id: "airtel-1gb", name: "AirtelTigo 1GB", network: "AirtelTigo", volume: "1 GB", price: 3.80, validity: "24h", popular: true },
-            { id: "airtel-3gb", name: "AirtelTigo 3GB", network: "AirtelTigo", volume: "3 GB", price: 10.00, validity: "3d", popular: false },
-            { id: "airtel-5gb", name: "AirtelTigo 5GB", network: "AirtelTigo", volume: "5 GB", price: 15.50, validity: "7d", popular: true },
-            { id: "airtel-10gb", name: "AirtelTigo 10GB", network: "AirtelTigo", volume: "10 GB", price: 28.00, validity: "30d", popular: false },
-            { id: "glo-1gb", name: "Glo 1GB", network: "Glo", volume: "1 GB", price: 3.50, validity: "24h", popular: true },
-            { id: "glo-3gb", name: "Glo 3GB", network: "Glo", volume: "3 GB", price: 9.00, validity: "3d", popular: false },
-            { id: "glo-7gb", name: "Glo 7GB", network: "Glo", volume: "7 GB", price: 18.00, validity: "14d", popular: true },
-            { id: "glo-15gb", name: "Glo 15GB", network: "Glo", volume: "15 GB", price: 35.00, validity: "30d", popular: false },
-            { id: "mtn-40gb", name: "MTN 40GB", network: "MTN", volume: "40 GB", price: 110.00, validity: "60d", popular: false }
-        ];
-
-        function renderHome(filter = "all", search = "") {
-            let filtered = bundles;
-            if (filter !== "all") filtered = filtered.filter(b => b.network === filter);
-            if (search) filtered = filtered.filter(b => b.name.toLowerCase().includes(search) || b.volume.toLowerCase().includes(search));
-
-            const networks = ["all", "MTN", "Vodafone", "AirtelTigo", "Glo"];
-            const filterButtons = networks.map(net => `<button class="filter-tab ${filter === net ? 'active' : ''}" data-network="${net}">${net === "all" ? "All Networks" : net}</button>`).join('');
-
-            const cards = filtered.map(b => `
-                <div class="bundle-card p-5 flex flex-col h-full">
-                    <div class="flex justify-between items-start">
-                        <span class="network-badge">${b.network}</span>
-                        ${b.popular ? '<span class="bg-amber-100 text-amber-800 text-xs px-2 py-0.5 rounded-full">🔥 Popular</span>' : ''}
-                    </div>
-                    <h3 class="font-bold text-xl mt-3">${b.name}</h3>
-                    <p class="text-gray-500 text-sm">${b.volume} • ${b.validity}</p>
-                    <div class="mt-4 text-2xl font-black">₵${b.price.toFixed(2)}</div>
-                    <div class="mt-6 flex items-center justify-between">
-                        <a href="/bundle/${b.id}" class="text-blue-600 text-sm font-semibold view-detail">View details →</a>
-                        <a href="${SHOP_URL}" target="_blank" rel="noopener" class="bg-gray-100 hover:bg-gray-200 rounded-full px-4 py-1.5 text-sm font-medium transition">Buy</a>
-                    </div>
-                </div>
-            `).join('');
-
-            return `
-                <div class="text-center mb-10">
-                    <h1 class="text-3xl md:text-4xl font-extrabold">GHDatamart</h1>
-                    <p class="text-gray-600 mt-2">Wholesale data bundles • All networks Ghana • 10-45 min delivery</p>
-                </div>
-                <div class="flex flex-wrap justify-between gap-4 mb-8">
-                    <div class="flex gap-2 flex-wrap">${filterButtons}</div>
-                    <input type="text" id="searchInput" placeholder="Search bundles..." class="border border-gray-300 rounded-full px-4 py-2 w-64 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    ${cards || '<div class="col-span-full text-center text-gray-500">No bundles found</div>'}
-                </div>
-                <div class="mt-16 bg-blue-50 rounded-2xl p-8 text-center">
-                    <h3 class="font-bold text-xl">🚀 Become a reseller</h3>
-                    <p class="mt-1 text-gray-600">Join 40k+ resellers and earn extra profit per bundle.</p>
-                    <a href="${SHOP_URL}" target="_blank" class="btn-primary mt-4 inline-block">Join Reseller Program →</a>
-                </div>
-            `;
-        }
-
-        function renderDetail(bundle) {
-            return `
-                <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-sm p-8">
-                    <a href="/" class="text-blue-600 mb-4 inline-block">← Back to home</a>
-                    <h1 class="text-3xl font-bold">${bundle.name}</h1>
-                    <p class="text-gray-500 mt-1">${bundle.volume} • ${bundle.validity}</p>
-                    <div class="text-4xl font-black mt-4">₵${bundle.price.toFixed(2)}</div>
-                    <p class="mt-6 text-gray-600">${bundle.description || "Get this bundle instantly. Best price guaranteed."}</p>
-                    <div class="mt-8">
-                        <a href="${SHOP_URL}" target="_blank" class="btn-primary px-6 py-2">Buy Now →</a>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Simple router
-        function navigate(path) {
-            if (path === '/' || path === '') {
-                document.getElementById('app-root').innerHTML = renderHome();
-                attachHomeEvents();
-            } else if (path.startsWith('/bundle/')) {
-                const id = path.split('/bundle/')[1];
-                const bundle = bundles.find(b => b.id === id);
-                if (bundle) {
-                    document.getElementById('app-root').innerHTML = renderDetail(bundle);
-                } else {
-                    navigate('/');
-                }
-            } else {
-                navigate('/');
-            }
-        }
-
-        function attachHomeEvents() {
-            document.querySelectorAll('.filter-tab').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const net = btn.dataset.network;
-                    const search = document.getElementById('searchInput')?.value.toLowerCase() || '';
-                    document.getElementById('app-root').innerHTML = renderHome(net, search);
-                    attachHomeEvents();
-                });
-            });
-            const searchInput = document.getElementById('searchInput');
-            if (searchInput) {
-                searchInput.addEventListener('input', (e) => {
-                    const term = e.target.value.toLowerCase();
-                    const active = document.querySelector('.filter-tab.active')?.dataset.network || 'all';
-                    document.getElementById('app-root').innerHTML = renderHome(active, term);
-                    attachHomeEvents();
-                });
-            }
-            document.querySelectorAll('.view-detail').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const href = link.getAttribute('href');
-                    if (href) navigate(href);
-                });
-            });
-        }
-
-        document.getElementById('whatsappBtn')?.addEventListener('click', () => {
-            window.location.href = SHOP_URL;
-        });
-
-        document.getElementById('navHome')?.addEventListener('click', (e) => { e.preventDefault(); navigate('/'); });
-        document.getElementById('navBundles')?.addEventListener('click', (e) => { e.preventDefault(); navigate('/'); });
-
-        // Initial load
-        navigate(window.location.pathname);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
